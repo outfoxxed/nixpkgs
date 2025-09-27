@@ -69,7 +69,7 @@
   darwinVersionInputs,
   xcbuild,
   # mingw
-  pkgsBuildBuild,
+  pkgsBuildHost,
   # optional dependencies
   cups,
   libmysqlclient,
@@ -275,8 +275,8 @@ stdenv.mkDerivation rec {
     "-DQT_INTERNAL_XCODE_VERSION=0.1"
   ]
   ++ lib.optionals isCrossBuild [
-    "-DQT_HOST_PATH=${pkgsBuildBuild.qt6.qtbase}"
-    "-DQt6HostInfo_DIR=${pkgsBuildBuild.qt6.qtbase}/lib/cmake/Qt6HostInfo"
+    "-DQT_HOST_PATH=${pkgsBuildHost.qt6.qtbase}"
+    "-DQt6HostInfo_DIR=${pkgsBuildHost.qt6.qtbase}/lib/cmake/Qt6HostInfo"
   ]
   ++ lib.optional (
     qttranslations != null && !isCrossBuild

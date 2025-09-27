@@ -24,7 +24,7 @@
   elfutils,
   libunwind,
   orc,
-  pkgsBuildBuild,
+  pkgsBuildHost,
 }:
 
 qtModule {
@@ -69,7 +69,7 @@ qtModule {
 
   cmakeFlags = [
     "-DENABLE_DYNAMIC_RESOLVE_VAAPI_SYMBOLS=0"
-    "-DQt6ShaderToolsTools_DIR=${pkgsBuildBuild.qt6.qtshadertools}/lib/cmake/Qt6ShaderToolsTools"
+    "-DQt6ShaderToolsTools_DIR=${pkgsBuildHost.qt6.qtshadertools}/lib/cmake/Qt6ShaderToolsTools"
   ];
 
   env.NIX_CFLAGS_COMPILE = lib.optionalString stdenv.hostPlatform.isDarwin "-include AudioToolbox/AudioToolbox.h";

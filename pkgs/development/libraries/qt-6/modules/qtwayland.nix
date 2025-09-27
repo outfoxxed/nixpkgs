@@ -1,5 +1,5 @@
 {
-  pkgsBuildBuild,
+  pkgsBuildHost,
   stdenv,
   lib,
   qtModule,
@@ -31,7 +31,7 @@ qtModule {
   nativeBuildInputs = [ pkg-config ];
 
   cmakeFlags = lib.optionals (!stdenv.buildPlatform.canExecute stdenv.hostPlatform) [
-    "-DQt6WaylandScannerTools_DIR=${pkgsBuildBuild.qt6.qtwayland}/lib/cmake/Qt6WaylandScannerTools"
+    "-DQt6WaylandScannerTools_DIR=${pkgsBuildHost.qt6.qtwayland}/lib/cmake/Qt6WaylandScannerTools"
   ];
 
   meta = {
